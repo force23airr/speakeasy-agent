@@ -19,7 +19,7 @@ export default function VoiceAgent({ sector, onTurn }: Props) {
 
   async function handleAnswer(q: string) {
     try {
-      const reply = await askAgent(q);
+      const { answer: reply } = await askAgent(q, sector.label);
       setAnswer(reply);
       speak(reply);
       onTurn(q, reply);

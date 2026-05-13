@@ -53,13 +53,17 @@ export async function fetchState(): Promise<LiveState> {
   return (await res.json()) as LiveState;
 }
 
-export async function askAgent(question: string): Promise<string> {
+export async function askAgent(
+  question: string,
+  sector?: string,
+  agent?: string,
+): Promise<{ answer: string; agent: string }> {
   const res = await fetch(`${API_URL}/agent`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ question }),
+    body: JSON.stringify({ question, sector, agent }),
   });
   if (!res.ok) throw new Error(await res.text());
-  const data = (await res.json()) as { answer: string };
-  return data.answer;
+  const data = (await res.json()) as { answer: string; agent?: string };
+  return { answer: data.answer, agent: data.agent ?? agent ?? "assistant" };
 }

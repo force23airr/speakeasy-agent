@@ -7,6 +7,12 @@ export const config = {
   databaseUrl:
     process.env.DATABASE_URL ?? "postgres://civic:civic@localhost:5433/civic",
   uploadDir: path.resolve(root, process.env.UPLOAD_DIR ?? "../uploads"),
-  visionScript: path.resolve(root, process.env.VISION_SCRIPT ?? "../vision/detect.py"),
+  visionScript: path.resolve(
+    root,
+    process.env.VISION_SCRIPT ?? "../vision/detect.py",
+  ),
   pythonBin: process.env.PYTHON_BIN ?? "python3",
+  ollamaUrl: process.env.OLLAMA_URL ?? "http://localhost:11434",
+  ollamaModel: process.env.OLLAMA_MODEL ?? "llama3.2",
+  ollamaTimeoutMs: Number(process.env.OLLAMA_TIMEOUT_MS ?? 20000),
 };
