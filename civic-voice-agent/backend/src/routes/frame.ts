@@ -27,6 +27,7 @@ frameRouter.post("/frame", upload.single("frame"), async (req, res) => {
       category: detection.category,
       confidence: detection.confidence,
       summary: detection.summary,
+      objects: detection.objects,
     });
     res.json({ detection: entry });
   } catch (err) {

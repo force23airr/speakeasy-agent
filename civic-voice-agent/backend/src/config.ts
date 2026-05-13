@@ -11,8 +11,10 @@ export const config = {
     root,
     process.env.VISION_SCRIPT ?? "../vision/detect.py",
   ),
+  visionServerUrl: process.env.VISION_SERVER_URL ?? "http://localhost:5005",
   pythonBin: process.env.PYTHON_BIN ?? "python3",
   ollamaUrl: process.env.OLLAMA_URL ?? "http://localhost:11434",
   ollamaModel: process.env.OLLAMA_MODEL ?? "llama3.2",
   ollamaTimeoutMs: Number(process.env.OLLAMA_TIMEOUT_MS ?? 20000),
+  visionTimeoutMs: Number(process.env.VISION_TIMEOUT_MS ?? 10000),
 };

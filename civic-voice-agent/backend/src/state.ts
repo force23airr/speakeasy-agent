@@ -1,8 +1,14 @@
+export interface DetectedObject {
+  class: string;
+  count: number;
+}
+
 export interface LiveDetection {
   category: string;
   confidence: number;
   summary: string;
   at: string;
+  objects?: DetectedObject[];
 }
 
 const MAX = 20;

@@ -10,11 +10,17 @@ export interface Incident {
   created_at: string;
 }
 
+export interface DetectedObject {
+  class: string;
+  count: number;
+}
+
 export interface LiveDetection {
   category: string;
   confidence: number;
   summary: string;
   at: string;
+  objects?: DetectedObject[];
 }
 
 export interface LiveState {

@@ -111,6 +111,12 @@ function buildSystemPrompt(
     lines.push(`- Summary: ${live.summary}`);
     lines.push(`- Category: ${live.category.replace(/_/g, " ")}`);
     lines.push(`- Confidence: ${pct}%`);
+    if (live.objects && live.objects.length > 0) {
+      lines.push("- Objects in frame:");
+      for (const obj of live.objects) {
+        lines.push(`  · ${obj.class}: ${obj.count}`);
+      }
+    }
   } else {
     lines.push("CURRENT DETECTION: none (no feed active).");
   }

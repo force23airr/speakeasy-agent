@@ -4,7 +4,7 @@ import path from "path";
 import fs from "fs";
 import { config } from "../config";
 import { insertIncident } from "../db";
-import { runDetector } from "../vision";
+import { runDetectorCli } from "../vision";
 
 fs.mkdirSync(config.uploadDir, { recursive: true });
 
@@ -26,7 +26,7 @@ uploadRouter.post("/upload", upload.single("video"), async (req, res) => {
 
   const videoPath = path.resolve(req.file.path);
   try {
-    const detection = await runDetector(videoPath);
+    const detection = await runDetectorCli(videoPath);
     const incident = await insertIncident(
       videoPath,
       detection.category,

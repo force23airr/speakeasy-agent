@@ -16,7 +16,7 @@ export function useProactiveAlerts(
 ) {
   const {
     enabled,
-    confidenceThreshold = 0.7,
+    confidenceThreshold = 0.8,
     cooldownMs = 25000,
     onAlert,
   } = options;
