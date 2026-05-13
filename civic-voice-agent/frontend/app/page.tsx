@@ -155,8 +155,8 @@ export default function Home() {
         <div className="bottom-row">
           <section className="panel">
             <div className="panel-head">
-              <h2 className="panel-title">Ask by voice</h2>
-              <span className="panel-hint">{sector.label}</span>
+              <h2 className="panel-title">Speak or tap</h2>
+              <span className="panel-hint">voice or quick prompts · {sector.label}</span>
             </div>
             <VoiceAgent sector={sector} onTurn={recordVoiceTurn} />
           </section>

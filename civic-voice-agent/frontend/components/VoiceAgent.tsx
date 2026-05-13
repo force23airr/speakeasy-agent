@@ -62,19 +62,32 @@ export default function VoiceAgent({ sector, onTurn }: Props) {
 
   return (
     <div>
-      <div className="voice-row">
-        <button
-          className={`mic ${listening ? "listening" : ""}`}
-          onClick={listening ? stop : start}
-        >
-          {listening ? "● Listening… tap to stop" : "🎤 Ask"}
-        </button>
-        {sector.prompts.map((p) => (
-          <button key={p} className="btn-ghost" onClick={() => quick(p)}>
-            {p}
-          </button>
-        ))}
+      <button
+        className={`mic-large ${listening ? "listening" : ""}`}
+        onClick={listening ? stop : start}
+      >
+        <span className="mic-icon">{listening ? "●" : "🎤"}</span>
+        <span>{listening ? "Listening · tap to stop" : "Speak"}</span>
+      </button>
+
+      <div className="prompt-section">
+        <div className="prompt-section-label">
+          Quick prompts · <span className="prompt-sector">{sector.label}</span>
+        </div>
+        <div className="prompt-grid">
+          {sector.prompts.map((p) => (
+            <button
+              key={p}
+              className="prompt-button"
+              onClick={() => quick(p)}
+              title={`Send: ${p}`}
+            >
+              {p}
+            </button>
+          ))}
+        </div>
       </div>
+
       {question && (
         <p className="transcript">
           You: <em>{question}</em>
