@@ -9,3 +9,6 @@ __pycache__
 *.pyc
 .venv
 .DS_Store
+samples/*.mp4
+samples/*.mov
+samples/*.webm

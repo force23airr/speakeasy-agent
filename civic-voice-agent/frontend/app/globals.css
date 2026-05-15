@@ -345,6 +345,29 @@ input[type="file"] {
 }
 .prompt-button:active { transform: scale(0.99); }
 
+/* Video source controls */
+.video-source-controls {
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.7rem 0.8rem;
+  margin-bottom: 0.7rem;
+}
+.video-source-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.video-source-row .text-input { flex: 1; }
+.file-pick {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0.45rem 0.8rem;
+  white-space: nowrap;
+}
+
 .transcript {
   color: var(--muted);
   font-size: 0.85rem;
